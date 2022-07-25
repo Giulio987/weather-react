@@ -1,7 +1,18 @@
 import DesktopWeather from 'pages/DesktopWeather';
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
+import { useAppDispatch } from 'redux/store';
+import { getWeather } from 'redux/thunks/weather';
 
 const App = () => {
+  const dispatch = useAppDispatch();
+  const cities = useMemo(() => ['Turin', 'London', 'Rome'], []);
+  useEffect(() => {
+    try {
+      for (const city of cities) {
+        dispatch(getWeather(city));
+      }
+    } catch (e) {}
+  }, [dispatch, cities]);
   return <DesktopWeather />;
 };
 
