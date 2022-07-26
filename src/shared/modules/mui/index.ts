@@ -1,5 +1,9 @@
 import { createTheme } from '@mui/material/styles';
 import { Theme } from '@mui/material/styles';
+const PoppinsLight = require('fonts/Poppins/Poppins-Light.ttf');
+const PoppinsBold = require('fonts/Poppins/Poppins-Bold.ttf');
+const PoppinsMedium = require('fonts/Poppins/Poppins-Medium.ttf');
+const PoppinsSemiBold = require('fonts/Poppins/Poppins-SemiBold.ttf');
 
 declare module '@mui/private-theming' {
   interface DefaultTheme {
@@ -55,4 +59,12 @@ export const weatherTheme: Theme = createTheme({
     backgroundColor: '#B3B3B3',
   },
   spacing: 10,
+  typography: {
+    fontFamily: [
+      PoppinsLight,
+      PoppinsBold,
+      PoppinsMedium,
+      PoppinsSemiBold,
+    ].join(','),
+  },
 });

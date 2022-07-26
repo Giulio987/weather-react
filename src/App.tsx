@@ -5,7 +5,14 @@ import { getWeather } from 'redux/thunks/weather';
 
 const App = () => {
   const dispatch = useAppDispatch();
-  const cities = useMemo(() => ['Turin', 'London', 'Rome'], []);
+  const cities = useMemo(
+    () => [
+      { name: 'Turin', country: 'IT' },
+      { name: 'London', country: 'GB' },
+      { name: 'Rome', country: 'IT' },
+    ],
+    []
+  );
   useEffect(() => {
     try {
       for (const city of cities) {
