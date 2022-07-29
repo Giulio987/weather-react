@@ -1,9 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 import { Theme } from '@mui/material/styles';
-const PoppinsLight = require('fonts/Poppins/Poppins-Light.ttf');
-const PoppinsBold = require('fonts/Poppins/Poppins-Bold.ttf');
-const PoppinsMedium = require('fonts/Poppins/Poppins-Medium.ttf');
-const PoppinsSemiBold = require('fonts/Poppins/Poppins-SemiBold.ttf');
 
 declare module '@mui/private-theming' {
   interface DefaultTheme {
@@ -60,11 +56,33 @@ export const weatherTheme: Theme = createTheme({
   },
   spacing: 10,
   typography: {
-    fontFamily: [
-      PoppinsLight,
-      PoppinsBold,
-      PoppinsMedium,
-      PoppinsSemiBold,
-    ].join(','),
+    fontFamily: ['Poppins'].join(','),
+    h1: {
+      //temperature
+      fontSize: '50px',
+      color: 'white',
+      fontWeight: 'bold',
+    },
+    h2: {
+      fontSize: '32px',
+      fontWeight: 'bold',
+      color: '#01175F',
+    },
+    //Principale
+    h3: {
+      fontSize: '28px',
+    },
+    h4: {
+      fontSize: '26px',
+      color: 'white',
+      //TODO sistemare i font: semibold /Bold etc.. non corretti ora
+      fontWeight: 'semibold',
+    },
+    body1: {
+      fontSize: '22px',
+    },
+    body2: {
+      fontSize: '20px',
+    },
   },
 });

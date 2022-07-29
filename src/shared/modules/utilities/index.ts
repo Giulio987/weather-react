@@ -1,20 +1,37 @@
-import { createSvgIcon } from '@mui/material';
 import { weatherTheme } from '../mui';
+const cloudy = require('assets/img/Cloudy.png');
+const rainy = require('assets/img/OccLightRain.png');
+const sunny = require('assets/img/Sunny.png');
+
 const getImageAndStyleFromWeather = (weather: string) => {
   switch (weather) {
     case 'Clouds':
       return {
-        image: 'assets/img/Cloudy.png',
-        style: { ackground: '' },
+        image: cloudy,
+        style: {
+          background:
+            'linear-gradient(to bottom,' +
+            weatherTheme.palette.cloudy.main +
+            ', ' +
+            weatherTheme.palette.cloudy.light +
+            ')',
+        },
       };
     case 'Rain':
       return {
-        image: 'assets/img/occ-light-rain.png',
-        style: { ackground: '' },
+        image: rainy,
+        style: {
+          background:
+            'linear-gradient(to bottom,' +
+            weatherTheme.palette.rainy.main +
+            ', ' +
+            weatherTheme.palette.rainy.light +
+            ')',
+        },
       };
     case 'Clear':
       return {
-        image: 'assets/img/Sunny.png',
+        image: sunny,
         style: {
           background:
             'linear-gradient(to bottom,' +
@@ -26,8 +43,15 @@ const getImageAndStyleFromWeather = (weather: string) => {
       };
     default:
       return {
-        image: 'assets/img/Sunny.png',
-        style: { background: '' },
+        image: sunny,
+        style: {
+          background:
+            'linear-gradient(to bottom,' +
+            weatherTheme.palette.primary.main +
+            ', ' +
+            weatherTheme.palette.primary.light +
+            ')',
+        },
       };
   }
 };

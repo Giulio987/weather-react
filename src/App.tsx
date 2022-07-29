@@ -5,20 +5,27 @@ import { getWeather } from 'redux/thunks/weather';
 
 const App = () => {
   const dispatch = useAppDispatch();
+  const MINUTE_MS = 60000;
+
   const cities = useMemo(
     () => [
-      { name: 'Turin', country: 'IT' },
-      { name: 'London', country: 'GB' },
-      { name: 'Rome', country: 'IT' },
+      { name: 'Turin', country: 'IT', id: 1 },
+      { name: 'London', country: 'GB', id: 2 },
+      { name: 'Rome', country: 'IT', id: 3 },
     ],
     []
   );
   useEffect(() => {
-    try {
+    for (const city of cities) {
+      dispatch(getWeather(city));
+    }
+    const interval = setInterval(() => {
       for (const city of cities) {
         dispatch(getWeather(city));
       }
-    } catch (e) {}
+    }, MINUTE_MS);
+
+    return () => clearInterval(interval);
   }, [dispatch, cities]);
   return <DesktopWeather />;
 };

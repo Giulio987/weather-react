@@ -19,7 +19,16 @@ export const weatherSlice = createSlice({
   reducers: {
     setWeather: (state: WeatherState, action: PayloadAction<CityWeather>) => {
       if (action.payload) {
-        state.cities = [...state.cities, action.payload];
+        const index = state.cities.findIndex(
+          (city) => city.id === action.payload.id
+        );
+        if (index !== -1) {
+          state.cities[index] = action.payload;
+        } else {
+          state.cities = [...state.cities, action.payload];
+          //order state.cities by id
+          state.cities.sort((a, b) => a.id - b.id);
+        }
       }
     },
     setCallState: (
