@@ -9,9 +9,22 @@ const App = () => {
 
   const cities = useMemo(
     () => [
-      { name: 'Turin', country: 'IT', id: 1 },
-      { name: 'London', country: 'GB', id: 2 },
-      { name: 'Rome', country: 'IT', id: 3 },
+      {
+        name: 'Turin',
+        country: 'IT',
+        id: 1,
+        coord: { lat: 45.064, lon: 7.66 },
+      },
+      { name: 'London', country: 'GB', id: 2, coord: { lat: 51.5, lon: -0.1 } },
+      {
+        name: 'Rome',
+        country: 'IT',
+        id: 3,
+        coord: {
+          lat: 41.9,
+          lon: 12.5,
+        },
+      },
     ],
     []
   );
@@ -19,13 +32,13 @@ const App = () => {
     for (const city of cities) {
       dispatch(getWeather(city));
     }
-    const interval = setInterval(() => {
+    /*     const interval = setInterval(() => { TODO
       for (const city of cities) {
         dispatch(getWeather(city));
       }
-    }, MINUTE_MS);
+    }, MINUTE_MS); */
 
-    return () => clearInterval(interval);
+    /*   return () => clearInterval(interval); */
   }, [dispatch, cities]);
   return <DesktopWeather />;
 };
