@@ -1,10 +1,14 @@
+import { useMediaQuery } from '@mui/material';
 import DesktopWeather from 'pages/DesktopWeather';
+import MobileWeather from 'pages/MobileWeather';
 import React, { useEffect, useMemo } from 'react';
 import { useAppDispatch } from 'redux/store';
 import { getWeather } from 'redux/thunks/weather';
+import { weatherTheme } from 'shared/modules/mui';
 
 const App = () => {
   const dispatch = useAppDispatch();
+  const isBigScreen = useMediaQuery(weatherTheme.breakpoints.up('sm'));
   const MINUTE_MS = 60000;
 
   const cities = useMemo(
@@ -40,7 +44,7 @@ const App = () => {
 
     /*   return () => clearInterval(interval); */
   }, [dispatch, cities]);
-  return <DesktopWeather />;
+  return <>{isBigScreen ? <DesktopWeather /> : <MobileWeather />}</>;
 };
 
 export default App;
