@@ -1,4 +1,5 @@
 import {
+  Box,
   Card,
   List,
   ListItem,
@@ -6,6 +7,7 @@ import {
   Stack,
   Typography,
 } from '@mui/material';
+import React from 'react';
 
 interface WeekMeteoProps {
   dailyWeather: {
@@ -23,7 +25,7 @@ const WeekMeteo = ({ dailyWeather, activeStep, maxSteps }: WeekMeteoProps) => {
     <>
       <List component={Stack} direction="row" sx={{ flex: 1, px: 3, py: 2 }}>
         {dailyWeather.map((cityWeather, i) => (
-          <>
+          <React.Fragment key={'key__i=' + i + Math.random()}>
             {activeStep === i && (
               <ListItem
                 key={cityWeather[0] + 'i_' + Math.random()}
@@ -60,7 +62,7 @@ const WeekMeteo = ({ dailyWeather, activeStep, maxSteps }: WeekMeteoProps) => {
                 ))}
               </ListItem>
             )}
-          </>
+          </React.Fragment>
         ))}
       </List>
       <MobileStepper

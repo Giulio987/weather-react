@@ -71,7 +71,8 @@ const WeekMonth = () => {
         flexDirection: 'column',
         flex: 1,
         borderTopLeftRadius: '25px',
-        minWidth: '570px',
+        minWidth: '470px',
+        maxWidth: 565,
         position: 'relative',
         zIndex: 2,
       }}

@@ -20,6 +20,8 @@ const WindCard = () => {
             display: 'none',
           },
           pt: 2,
+          width: '305px',
+          minHeight: '400px',
         }}
       >
         <Typography
@@ -89,7 +91,7 @@ const WindCard = () => {
       <div
         style={{
           position: 'absolute',
-          width: 'calc(100% - 50px)',
+          width: '310px',
           height: '43px',
           background:
             'linear-gradient(to bottom, rgba(109,165,241,0), #689CF0)',

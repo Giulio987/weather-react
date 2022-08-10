@@ -18,7 +18,7 @@ const MeteoCard = ({ city }: Props) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        minWidth: '370px',
+        width: '370px',
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>

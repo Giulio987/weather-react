@@ -9,9 +9,18 @@ const MeteoListCards = () => {
     (state: RootState) => state.weather
   );
   return (
-    <List disablePadding>
+    <List
+      disablePadding
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
       {cities.map((city, i) => (
-        <div key={city.name}>{i !== 0 && <MeteoCard city={city} />}</div>
+        <React.Fragment key={city.name}>
+          {i !== 0 && <MeteoCard city={city} />}
+        </React.Fragment>
       ))}
     </List>
   );

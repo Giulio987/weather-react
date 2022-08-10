@@ -1,21 +1,11 @@
 import {
   Box,
-  Button,
-  Card,
   CircularProgress,
   Grid,
-  List,
-  ListItem,
-  ListItemText,
-  MobileStepper,
-  Stack,
-  Tab,
-  Tabs,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
-import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useSwipeable } from 'react-swipeable';
 import { RootState } from 'redux/reducers';
 import AddCityButton from 'shared/components/AddCityButton';
 import CityBigCard from 'shared/components/CityBigCard';
@@ -26,14 +16,16 @@ import SearchBox from 'shared/components/SearchBox';
 import WeekMonth from 'shared/components/WeekMonth';
 import WindCard from 'shared/components/WindCard';
 import { weatherTheme } from 'shared/modules/mui';
-import { getArrayOfTabs } from 'shared/modules/utilities';
-
+/*
+ * TODO Sistemare ancora di più il responsive
+ */
 const DesktopWeather = () => {
   //redux
   const { cities, error, isLoading } = useSelector(
     (state: RootState) => state.weather
   );
-
+  const meteoCardsBreakpoint = useMediaQuery('(max-width:990px)');
+  const windCardBreakpoint = useMediaQuery('(max-width:1029px)');
   return (
     <>
       {isLoading && <CircularProgress />}
@@ -50,30 +42,32 @@ const DesktopWeather = () => {
         >
           <LeftCityMeteo city={cities[0]} />
           <Grid container direction={'column'} spacing={3}>
+            {/**PRIMA RIGA */}
             <Grid item container direction={'row'} spacing={5}>
-              <Grid item sx={{ flex: 1, display: 'flex', height: 490 }} xs={8}>
+              <Grid item sx={{ flex: 2, display: 'flex', height: 490 }}>
                 <CityBigCard city={cities[0]} />
               </Grid>
-              <Grid item sx={{ flex: 1 }} xs={4}>
+              <Grid item sx={{ flex: meteoCardsBreakpoint ? 1 : 0 }}>
                 <AddCityButton />
                 <MeteoListCards />
               </Grid>
             </Grid>
+            {/**SECONDA RIGA */}
             <Grid
               item
               container
               direction={'row'}
               spacing={5}
-              sx={{ flex: 1, position: 'relative' }}
+              sx={{ position: 'relative' }}
             >
               <Grid
                 item
-                xs={3}
                 sx={{
                   display: 'flex',
                   flexDirection: 'column',
-                  minWidth: '230px',
                   position: 'relative',
+                  flex: 1,
+                  alignItems: windCardBreakpoint ? 'center' : 'flex-start',
                 }}
               >
                 <Typography
@@ -87,26 +81,27 @@ const DesktopWeather = () => {
               </Grid>
               <Grid
                 item
-                xs={6}
                 sx={{
                   display: 'flex',
-                  minWidth: '620px',
+                  flex: 1,
                 }}
-                direction={'column'}
               >
                 <WeekMonth />
               </Grid>
+
               <Grid
                 item
                 container
-                xs={3}
                 direction="column"
                 justifyContent={'space-between'}
-                minWidth={'320px'}
               >
                 <Grid
                   item
-                  sx={{ display: 'flex', flexDirection: 'column', flex: 1 }}
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flex: 1,
+                  }}
                 >
                   <Typography
                     p={2}

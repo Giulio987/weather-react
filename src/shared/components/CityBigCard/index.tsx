@@ -13,6 +13,7 @@ const CityBigCard = ({ city }: FirstCityMeteoProps) => {
         flex: 1,
         pt: 8,
         pl: '146px',
+        minWidth: '470px',
       }}
     >
       <Typography variant={'h2'} sx={{ pb: 1 }}>
