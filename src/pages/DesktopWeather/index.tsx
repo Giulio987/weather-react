@@ -1,10 +1,4 @@
-import {
-  Box,
-  CircularProgress,
-  Grid,
-  Typography,
-  useMediaQuery,
-} from '@mui/material';
+import { Box, Grid, Typography, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { RootState } from 'redux/reducers';
 import AddCityButton from 'shared/components/AddCityButton';
@@ -18,18 +12,16 @@ import WindCard from 'shared/components/WindCard';
 import { weatherTheme } from 'shared/modules/mui';
 /*
  * TODO Sistemare ancora di più il responsive
+ * TODO sistemare react memorized components
  */
 const DesktopWeather = () => {
   //redux
-  const { cities, error, isLoading } = useSelector(
-    (state: RootState) => state.weather
-  );
+  const { cities, error } = useSelector((state: RootState) => state.weather);
   const meteoCardsBreakpoint = useMediaQuery('(max-width:990px)');
   const windCardBreakpoint = useMediaQuery('(max-width:1029px)');
   return (
     <>
-      {isLoading && <CircularProgress />}
-      {!isLoading && !error && cities.length > 0 && (
+      {!error && cities.length > 0 && (
         <Box
           px={5}
           pt={5}

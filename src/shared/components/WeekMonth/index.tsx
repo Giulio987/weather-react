@@ -1,14 +1,4 @@
-import {
-  Box,
-  Card,
-  List,
-  ListItem,
-  MobileStepper,
-  Stack,
-  Tab,
-  Tabs,
-  Typography,
-} from '@mui/material';
+import { Box, Card, Tab, Tabs } from '@mui/material';
 import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useSwipeable } from 'react-swipeable';
