@@ -15,7 +15,10 @@ const CityBigCard = ({ city }: FirstCityMeteoProps) => {
         pl: '146px',
         minWidth: '470px',
         background: 'url(' + Tourin + ')',
-        backgroundSize: 'cover',
+        backgroundSize: '100% 100%',
+        backgroundPosition: 'bottom right',
+        backgroundAttachment: 'fixed',
+        backgroundRepeat: 'no-repeat',
       }}
     >
       <Typography variant={'h2'} sx={{ pb: 1 }}>

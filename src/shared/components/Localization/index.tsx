@@ -11,6 +11,7 @@ const Localization = () => {
         flexDirection: 'column',
         flex: 1,
         width: 370,
+        minHeight: 140,
       }}
     >
       <img src={locationIcon} alt={'location-icon'}></img>

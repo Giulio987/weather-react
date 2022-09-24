@@ -34,7 +34,7 @@ const DesktopWeather = () => {
         >
           <LeftCityMeteo city={cities[0]} />
           <Grid container direction={'column'} spacing={3}>
-            {/**PRIMA RIGA */}
+            {/**NOTE PRIMA RIGA */}
             <Grid item container direction={'row'} spacing={5}>
               <Grid item sx={{ flex: 2, display: 'flex', height: 490 }}>
                 <CityBigCard city={cities[0]} />
@@ -44,7 +44,7 @@ const DesktopWeather = () => {
                 <MeteoListCards />
               </Grid>
             </Grid>
-            {/**SECONDA RIGA */}
+            {/**NOTE SECONDA RIGA */}
             <Grid
               item
               container
@@ -59,7 +59,7 @@ const DesktopWeather = () => {
                   flexDirection: 'column',
                   position: 'relative',
                   flex: 1,
-                  alignItems: windCardBreakpoint ? 'center' : 'flex-start',
+                  alignItems: 'center',
                 }}
               >
                 <Typography
@@ -83,9 +83,11 @@ const DesktopWeather = () => {
 
               <Grid
                 item
+                sx={{ flex: 1 }}
                 container
                 direction="column"
                 justifyContent={'space-between'}
+                alignItems={'center'}
               >
                 <Grid
                   item

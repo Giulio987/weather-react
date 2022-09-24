@@ -16,6 +16,7 @@ const SearchBox = () => {
           opacity: 0.8,
         },
         width: 370,
+        minHeight: 140,
       }}
     >
       <Typography sx={{ flex: 1, pl: 4 }} variant={'h3'} color={'#B8B8B8'}>
