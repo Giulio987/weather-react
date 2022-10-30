@@ -38,6 +38,7 @@ const WeekMeteo = ({ dailyWeather, activeStep, maxSteps }: WeekMeteoProps) => {
                 {dailyWeather[i].map((daily, j) => (
                   <Card
                     key={daily.localeDate + Math.random()}
+                    elevation={4}
                     sx={{
                       maxHeight: '100%',
                       display: 'flex',
@@ -46,9 +47,9 @@ const WeekMeteo = ({ dailyWeather, activeStep, maxSteps }: WeekMeteoProps) => {
                       alignItems: 'center',
                       justifyContent: 'space-evenly',
                       p: 3,
-                      background: 'transparent',
+                      background: 'rgba(255,255,255,0.1)',
                       mr: j !== 2 ? 3 : 0,
-                      width: '150px',
+                      width: '148px',
                     }}
                   >
                     <Typography sx={{ pt: 2 }} variant="body1">
@@ -57,7 +58,16 @@ const WeekMeteo = ({ dailyWeather, activeStep, maxSteps }: WeekMeteoProps) => {
                     <Typography variant="h3" fontSize={'42px'}>
                       {daily.temperature.toFixed()}°
                     </Typography>
-                    <img src={daily.image} alt="weather" />
+                    <Box
+                      sx={{
+                        width: 84,
+                        height: 84,
+                        display: 'flex',
+                        alignItems: 'center',
+                      }}
+                    >
+                      <img src={daily.image} alt="weather" style={{}} />
+                    </Box>
                   </Card>
                 ))}
               </ListItem>

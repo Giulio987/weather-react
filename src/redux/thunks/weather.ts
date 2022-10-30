@@ -1,9 +1,9 @@
 import { setCallState, setWeather } from 'redux/reducers/wheather';
 import { AppDispatch } from 'redux/store';
-import { CityWeather } from 'shared/models/weather';
+import { CityWeather } from 'models/weather';
 import getImageAndStyleFromWeather, {
   getHourlyFormat,
-} from 'shared/modules/utilities';
+} from 'modules/utilities';
 
 const getWeather =
   (city: {

@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import React from 'react';
-import { CityWeather } from 'shared/models/weather';
+import { CityWeather } from 'models/weather';
 
 interface LeftCityMeteoProps {
   city: CityWeather;
@@ -21,6 +21,7 @@ const LeftCityMeteo = ({ city }: LeftCityMeteoProps) => {
         height: '280px',
         borderRadius: '0px 25px 25px 0px ',
         ...city.mainWeather.style,
+        boxShadow: '5px 10px 20px rgba(0,0,0,0.17)',
       }}
     >
       <Typography variant="h1" ml={'10px'} mb={'33px'}>

@@ -12,6 +12,7 @@ const Localization = () => {
         flex: 1,
         width: 370,
         minHeight: 140,
+        boxShadow: '5px 10px 20px rgba(0,0,0,0.17)',
       }}
     >
       <img src={locationIcon} alt={'location-icon'}></img>

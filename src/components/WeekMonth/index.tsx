@@ -3,13 +3,13 @@ import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useSwipeable } from 'react-swipeable';
 import { RootState } from 'redux/reducers';
-import { getArrayOfTabs } from 'shared/modules/utilities';
+import { getArrayOfTabs } from 'modules/utilities';
 import WeekMeteo from './WeekMeteo';
+import { weatherTheme } from 'modules/mui';
 
 const WeekMonth = () => {
-  const { cities, error, isLoading } = useSelector(
-    (state: RootState) => state.weather
-  );
+  //TODO ridurre le città disponibili da swippare quando lo schermo rimpicciolisce
+  const { cities } = useSelector((state: RootState) => state.weather);
   const dailyWeather = React.useMemo(() => getArrayOfTabs(cities[0]), [cities]);
   //Stepper
   const [activeStep, setActiveStep] = React.useState(0);
@@ -59,10 +59,9 @@ const WeekMonth = () => {
         background: 'linear-gradient(to right bottom, #5374E7, #77B9F5)',
         display: 'flex',
         flexDirection: 'column',
-        flex: 1,
         borderTopLeftRadius: '25px',
-        minWidth: '470px',
-        maxWidth: 565,
+        width: 564,
+        height: 464,
         position: 'relative',
         zIndex: 2,
       }}
@@ -90,6 +89,7 @@ const WeekMonth = () => {
               background: '#5374E7',
             },
             '& .MuiTab-root:not(.Mui-selected)': {
+              color: weatherTheme.palette.primary.dark,
               background: 'transparent !important',
             },
             zIndex: 3,
@@ -99,25 +99,33 @@ const WeekMonth = () => {
             sx={{
               borderTopLeftRadius: '25px',
               borderTopRightRadius: '25px',
+              fontSize: '28px',
+              lineHeight: '42px',
+              fontWeight: '400',
+              textTransform: 'unset !important',
             }}
             label="This week"
-          ></Tab>
+          />
           <Tab
             label="This month"
             sx={{
               borderTopRightRadius: '25px',
               borderTopLeftRadius: '25px',
+              fontSize: '28px',
+              lineHeight: '42px',
+              fontWeight: '400',
+              textTransform: 'unset !important',
             }}
-          ></Tab>
+          />
         </Tabs>
         <div
           style={{
             flex: 2,
             background: '#F1F1F1',
             position: 'absolute',
-            width: '85%',
+            width: '100%',
             right: 0,
-            height: '48px',
+            height: '66px',
             zIndex: 1,
           }}
         ></div>

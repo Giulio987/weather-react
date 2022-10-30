@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { CityWeather } from 'shared/models/weather';
+import { CityWeather } from 'models/weather';
 
 export interface WeatherState {
   isLoading: boolean;

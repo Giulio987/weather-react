@@ -4,7 +4,7 @@ import App from './App';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { ThemeProvider } from '@mui/material';
-import { weatherTheme } from 'shared/modules/mui';
+import { weatherTheme } from 'modules/mui';
 
 //@ts-ignore: experimental createRoot
 const root = createRoot(document.getElementById('root')!);

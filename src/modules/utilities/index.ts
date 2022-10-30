@@ -1,4 +1,4 @@
-import { CityWeather } from 'shared/models/weather';
+import { CityWeather } from 'models/weather';
 import { weatherTheme } from '../mui';
 const cloudy = require('assets/img/Cloudy.png');
 const rainy = require('assets/img/OccLightRain.png');

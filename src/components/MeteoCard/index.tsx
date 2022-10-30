@@ -1,5 +1,5 @@
 import { Box, Card, Typography } from '@mui/material';
-import { CityWeather } from 'shared/models/weather';
+import { CityWeather } from 'models/weather';
 
 interface Props {
   city: CityWeather;
@@ -19,11 +19,15 @@ const MeteoCard = ({ city }: Props) => {
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '370px',
+        boxShadow: '5px 10px 20px rgba(0,0,0,0.17)',
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <Typography variant="h4">{city.name}</Typography>
-        <Typography variant="subtitle1" sx={{ maxWidth: '100px' }}>
+        <Typography
+          variant="subtitle1"
+          sx={{ maxWidth: '100px', lineHeight: '18px', mb: 1.2 }}
+        >
           {city.mainWeather.localeDate}
         </Typography>
         <Typography variant="subtitle2">

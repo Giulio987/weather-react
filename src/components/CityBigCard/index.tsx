@@ -1,5 +1,5 @@
 import { Card, Typography } from '@mui/material';
-import { CityWeather } from 'shared/models/weather';
+import { CityWeather } from 'models/weather';
 //@ts-ignore
 import Tourin from './Tourin.jpg';
 interface FirstCityMeteoProps {
@@ -19,6 +19,7 @@ const CityBigCard = ({ city }: FirstCityMeteoProps) => {
         backgroundPosition: 'bottom right',
         backgroundAttachment: 'fixed',
         backgroundRepeat: 'no-repeat',
+        backgroundColor: 'rgba(160, 200, 228)',
       }}
     >
       <Typography variant={'h2'} sx={{ pb: 1 }}>

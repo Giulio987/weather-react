@@ -1,15 +1,15 @@
 import { Box, Grid, Typography, useMediaQuery } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { RootState } from 'redux/reducers';
-import AddCityButton from 'shared/components/AddCityButton';
-import CityBigCard from 'shared/components/CityBigCard';
-import LeftCityMeteo from 'shared/components/LeftCityMeteo';
-import Localization from 'shared/components/Localization';
-import MeteoListCards from 'shared/components/MeteoListCards';
-import SearchBox from 'shared/components/SearchBox';
-import WeekMonth from 'shared/components/WeekMonth';
-import WindCard from 'shared/components/WindCard';
-import { weatherTheme } from 'shared/modules/mui';
+import AddCityButton from 'components/AddCityButton';
+import CityBigCard from 'components/CityBigCard';
+import LeftCityMeteo from 'components/LeftCityMeteo';
+import Localization from 'components/Localization';
+import MeteoListCards from 'components/MeteoListCards';
+import SearchBox from 'components/SearchBox';
+import WeekMonth from 'components/WeekMonth';
+import WindCard from 'components/WindCard';
+import { weatherTheme } from 'modules/mui';
 /*
  * TODO Sistemare ancora di più il responsive
  * TODO sistemare react memorized components
@@ -18,7 +18,6 @@ const DesktopWeather = () => {
   //redux
   const { cities, error } = useSelector((state: RootState) => state.weather);
   const meteoCardsBreakpoint = useMediaQuery('(max-width:990px)');
-  const windCardBreakpoint = useMediaQuery('(max-width:1029px)');
   return (
     <>
       {!error && cities.length > 0 && (
@@ -76,6 +75,7 @@ const DesktopWeather = () => {
                 sx={{
                   display: 'flex',
                   flex: 1,
+                  alignItems: 'flex-end',
                 }}
               >
                 <WeekMonth />

@@ -1,5 +1,5 @@
 import { Button, Typography } from '@mui/material';
-import { weatherTheme } from 'shared/modules/mui';
+import { weatherTheme } from 'modules/mui';
 const plusIcon = require('assets/img/Plus.png');
 
 const AddCityButton = () => {

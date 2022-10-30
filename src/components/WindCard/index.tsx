@@ -4,24 +4,21 @@ import { useSelector } from 'react-redux';
 import { RootState } from 'redux/reducers';
 
 const WindCard = () => {
-  const { cities, error, isLoading } = useSelector(
-    //TODO pratiche di ottimizzazione
-    (state: RootState) => state.weather
-  );
+  const { cities } = useSelector((state: RootState) => state.weather);
   return (
     <>
       <Card
         sx={{
           flex: 1,
-          maxHeight: 'calc(100vh - 632.67px)',
           overflowY: 'scroll',
           height: '100%',
           '::-webkit-scrollbar': {
             display: 'none',
           },
           pt: 2,
-          width: '305px',
+          width: '302px',
           minHeight: '400px',
+          boxShadow: '5px 10px 20px rgba(0,0,0,0.17)',
         }}
       >
         <Typography
@@ -91,14 +88,14 @@ const WindCard = () => {
       <div
         style={{
           position: 'absolute',
-          width: '310px',
+          width: '301px',
           height: '43px',
           background:
             'linear-gradient(to bottom, rgba(109,165,241,0), #689CF0)',
           bottom: 0,
           borderRadius: '0px 0px 25px 25px',
         }}
-      ></div>
+      />
     </>
   );
 };
