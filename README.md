@@ -1,4 +1,4 @@
-Progetto Meteo Desk
+<h1>Progetto Meteo Desk</h1>
 Meteo Desk si propone come applicazione per la consultazione del meteo sviluppata interamente in React 
 
 La libreria di stile dell'applicazione è Material UI
